@@ -51,6 +51,10 @@ twitter.get({
 
 ## [Example](/example.js)
 
+## Options
+
+check [oauth-1.0a](https://github.com/ddo/oauth-1.0a#options) options
+
 ## API
 
 ### ``.get()``
