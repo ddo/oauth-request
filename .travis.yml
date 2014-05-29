@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+script: make coveralls
+env:
+  global:
+  - secure: AxcY96kGGwzIndZHdbw2xJui3Mjtd0I3zzBgoLvsYxNgHEX9UCOmBQ0GSHuAezaswscRMV+3xsCyEYH2nNmIqui3WFdKwC4u1MePj5nTrEadRxcF4RoG0RllWu+AfzH+sKBmdmqbHeIAKXNVuBcDsxuWO0ke4Vlm1vn50GjedRI=
+  - secure: NXTQ+eY+2LwObr1LqjzaT//n9/4oO5fxFMB0BuH5Mmpp3mNZ/2VG1YxCQpc/pkkWipAnnwMXigXW5Nvh8VZDt3g1VioPQ9TmEEm1CaHQkl7lDVU6za+6xSqPqbfkAAXHO+R000q6B2sAko4lbzRc/HjUaZ1+ZEIH9iH+ub7o80s=
+  - secure: iLd0U4uJywGgX3z+dbvxpiRpzwY/3P+zFCOMsVdG+auQL11gPJaNx/BROIDVKDd8zX3dElbs67UsrbJ+AAaUQznOi358ZKYhemPNDoreyk+120zrZhWfVP943aJPGFys5kXdU6U/pusZOWlvLtOLA1w0uxrbUPa5/i0rwT3BXT4=
+  - secure: VBQcyfjOxKzpjPLQGnXZsdpYAl4o5XG5ij97+6QqTHPLiFyxe213IJXX0X+vhU0MHoybGR8KGJD+1OuaDuXH0kv3cT0IoBHm6EUfAJnKytg4Q0o75DTx/dbeeVMcfMj9CybiE9heGXoXdR4wlTA5gzQjRrRM8NYzbxMkpgfQAvE=
+  - secure: RJLq1R9Y5WYxWNNhs92tt4D/x61sLtwNRwLf7bjU3q+LFo7RuAVJhv4bMNj7FpdmoZjPSJPnVjIXxNWr8ybKV81eLGR5O6n5tmDshTN40Kt/n8JDwtmyAPmtv8UNwYby8J3cxFzLF3c6n6Lr3bUBgS/kX96A6zNuf1/z6rQW+Sk=
