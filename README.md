@@ -63,6 +63,23 @@ twitter.get({
 * .post(url, callback)
 * .post([request options](https://github.com/mikeal/request#requestoptions-callback), callback)
 
+### ``.setToken(oauth_token)``
+
+* ``oauth_token``: ``String`` token public
+
+```js
+twitter.setToken('xxxxx');
+```
+
+* ``oauth_token``: ``Object``
+
+```js
+twitter.setToken({
+    public: 'xxxxx',
+    secret: 'xxxxx'
+});
+```
+
 ## TODO
 
 * [ ] ``.stream``
