@@ -63,4 +63,6 @@ twitter.get({
 * .post(url, callback)
 * .post([request options](https://github.com/mikeal/request#requestoptions-callback), callback)
 
-### ``.stream`` *soon*
+## TODO
+
+* [ ] ``.stream``
