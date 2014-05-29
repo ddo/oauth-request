@@ -17,7 +17,8 @@
     "authorize",
     "signature",
     "nonce",
-    "consumer"
+    "consumer",
+    "request"
   ],
   "author": "ddo <joeddo89@gmail.com> (http://ddo.me/)",
   "license": "MIT",
