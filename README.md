@@ -61,11 +61,13 @@ check [oauth-1.0a](https://github.com/ddo/oauth-1.0a#options) options
 
 * .get(url, callback)
 * .get([request options](https://github.com/mikeal/request#requestoptions-callback), callback)
+* .get(url or request options) (no callback) return request object
 
 ### ``.post()``
 
 * .post(url, callback)
 * .post([request options](https://github.com/mikeal/request#requestoptions-callback), callback)
+* .get(url or request options) (no callback) return request object
 
 ### ``.setToken(oauth_token)``
 
