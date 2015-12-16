@@ -1,7 +1,7 @@
 var qs = require('querystring');
 
 var debug   = require('debug')('oauth-request');
-var request = require('request');
+var request = require('request-promise');
 var OAuth   = require('oauth-1.0a');
 
 module.exports = OAuthRequest;
