@@ -1,15 +1,20 @@
 var expect = require('chai').expect;
 
+var crypto = require('crypto');
 var OAuthRequest = require('./');
 
 describe("oauth-request", function() {
     var twitter = OAuthRequest({
         consumer: {
-            public: process.env.TWITTER_CONSUMER_PUBLIC,
+            key: process.env.TWITTER_CONSUMER_PUBLIC,
             secret: process.env.TWITTER_CONSUMER_SECRET
         },
+        signature_method: 'HMAC-SHA1',
+        hash_function: function(base_string, key) {
+            return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+        },
         token: {
-            public: process.env.TWITTER_TOKEN_PUBLIC,
+            key: process.env.TWITTER_TOKEN_PUBLIC,
             secret: process.env.TWITTER_TOKEN_SECRET
         }
     });
@@ -30,36 +35,44 @@ describe("oauth-request", function() {
         });
     });
 
-    describe("#setToken token public", function() {
+    describe("#setToken token key", function() {
         twitter = OAuthRequest({
             consumer: {
-                public: process.env.TWITTER_CONSUMER_PUBLIC,
+                key: process.env.TWITTER_CONSUMER_PUBLIC,
                 secret: process.env.TWITTER_CONSUMER_SECRET
-            }
+            },
+            signature_method: 'HMAC-SHA1',
+            hash_function: function(base_string, key) {
+                return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+            },
         });
 
         twitter.setToken(process.env.TWITTER_TOKEN_PUBLIC);
 
-        it("token public should be set", function() {
-            expect(twitter.token).to.have.property('public', process.env.TWITTER_TOKEN_PUBLIC);
+        it("token key should be set", function() {
+            expect(twitter.token).to.have.property('key', process.env.TWITTER_TOKEN_PUBLIC);
         });
     });
 
     describe("#setToken", function() {
         twitter = OAuthRequest({
             consumer: {
-                public: process.env.TWITTER_CONSUMER_PUBLIC,
+                key: process.env.TWITTER_CONSUMER_PUBLIC,
                 secret: process.env.TWITTER_CONSUMER_SECRET
-            }
+            },
+            signature_method: 'HMAC-SHA1',
+            hash_function: function(base_string, key) {
+                return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+            },
         });
 
         twitter.setToken({
-            public: process.env.TWITTER_TOKEN_PUBLIC,
+            key: process.env.TWITTER_TOKEN_PUBLIC,
             secret: process.env.TWITTER_TOKEN_SECRET
         });
 
         it("token should be set", function() {
-            expect(twitter.token).to.have.property('public', process.env.TWITTER_TOKEN_PUBLIC);
+            expect(twitter.token).to.have.property('key', process.env.TWITTER_TOKEN_PUBLIC);
             expect(twitter.token).to.have.property('secret', process.env.TWITTER_TOKEN_SECRET);
         });
     });

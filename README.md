@@ -18,17 +18,22 @@ npm i oauth-request --save
 ## Usage
 
 ```js
+var crypto = require('crypto');
 var OAuth = require('oauth-request');
 
 var twitter = OAuth({
     consumer: {
-        public: 'xxxxx',
+        key: 'xxxxx',
         secret: 'xxxxx'
+    },
+    signature_method: 'HMAC-SHA1',
+    hash_function: function(base_string, key) {
+        return crypto.createHmac('sha1', key).update(base_string).digest('base64');
     }
 });
 
 twitter.setToken({
-    public: 'xxxxx',
+    key: 'xxxxx',
     secret: 'xxxxx'
 });
 
@@ -71,7 +76,7 @@ check [oauth-1.0a](https://github.com/ddo/oauth-1.0a#options) options
 
 ### ``.setToken(oauth_token)``
 
-* ``oauth_token``: ``String`` token public
+* ``oauth_token``: ``String`` token key
 
 ```js
 twitter.setToken('xxxxx');
@@ -81,7 +86,7 @@ twitter.setToken('xxxxx');
 
 ```js
 twitter.setToken({
-    public: 'xxxxx',
+    key: 'xxxxx',
     secret: 'xxxxx'
 });
 ```

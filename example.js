@@ -2,13 +2,17 @@ var OAuthRequest = require('./');
 
 var twitter = OAuthRequest({
     consumer: {
-        public: process.env.TWITTER_CONSUMER_PUBLIC,
+        key: process.env.TWITTER_CONSUMER_PUBLIC,
         secret: process.env.TWITTER_CONSUMER_SECRET
-    }
+    },
+    signature_method: 'HMAC-SHA1',
+    hash_function: function(base_string, key) {
+        return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+    },
 });
 
 twitter.setToken({
-    public: process.env.TWITTER_TOKEN_PUBLIC,
+    key: process.env.TWITTER_TOKEN_PUBLIC,
     secret: process.env.TWITTER_TOKEN_SECRET
 });
 

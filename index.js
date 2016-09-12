@@ -33,7 +33,7 @@ OAuthRequest.prototype.setToken = function(token) {
     this._log('#setToken', token);
 
     if(typeof token === 'string') {
-        return this.token.public = token;
+        return this.token.key = token;
     }
 
     //object
